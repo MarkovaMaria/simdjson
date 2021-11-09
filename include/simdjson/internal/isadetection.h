@@ -62,6 +62,7 @@ enum instruction_set {
   DEFAULT = 0x0,
   NEON = 0x1,
   AVX2 = 0x4,
+  AVX512 = 0x5,
   SSE42 = 0x8,
   PCLMULQDQ = 0x10,
   BMI1 = 0x20,
@@ -96,6 +97,7 @@ static inline uint32_t detect_supported_architectures() {
 
 namespace {
 // Can be found on Intel ISA Reference for CPUID
+constexpr uint32_t cpuid_avx512_bit = 1 << 16;      ///< @private Bit 16 of EBX for EAX=0x7 //avx512_f (Foundation)
 constexpr uint32_t cpuid_avx2_bit = 1 << 5;      ///< @private Bit 5 of EBX for EAX=0x7
 constexpr uint32_t cpuid_bmi1_bit = 1 << 3;      ///< @private bit 3 of EBX for EAX=0x7
 constexpr uint32_t cpuid_bmi2_bit = 1 << 8;      ///< @private bit 8 of EBX for EAX=0x7
@@ -135,6 +137,9 @@ static inline uint32_t detect_supported_architectures() {
   eax = 0x7;
   ecx = 0x0;
   cpuid(&eax, &ebx, &ecx, &edx);
+  if (ebx & cpuid_avx512_bit) {
+    host_isa |= instruction_set::AVX512;
+  }
   if (ebx & cpuid_avx2_bit) {
     host_isa |= instruction_set::AVX2;
   }
