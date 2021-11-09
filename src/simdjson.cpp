@@ -19,6 +19,10 @@ SIMDJSON_DISABLE_UNDESIRED_WARNINGS
 #include "fallback/implementation.cpp"
 #include "fallback/dom_parser_implementation.cpp"
 #endif
+#if SIMDJSON_IMPLEMENTATION_SKYLAKE
+#include "skylake/implementation.cpp"
+#include "skylake/dom_parser_implementation.cpp"
+#endif
 #if SIMDJSON_IMPLEMENTATION_HASWELL
 #include "haswell/implementation.cpp"
 #include "haswell/dom_parser_implementation.cpp"

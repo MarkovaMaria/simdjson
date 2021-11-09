@@ -13,6 +13,15 @@
 #endif
 #define SIMDJSON_CAN_ALWAYS_RUN_ARM64 SIMDJSON_IMPLEMENTATION_ARM64 && SIMDJSON_IS_ARM64
 
+#ifndef SIMDJSON_IMPLEMENTATION_SKYLAKE
+#define SIMDJSON_IMPLEMENTATION_SKYLAKE (SIMDJSON_IS_X86_64)
+#endif
+#ifdef _MSC_VER
+#define SIMDJSON_CAN_ALWAYS_RUN_SKYLAKE ((SIMDJSON_IMPLEMENTATION_SKYLAKE) && (SIMDJSON_IS_X86_64) && (__AVX512__))
+#else
+#define SIMDJSON_CAN_ALWAYS_RUN_SKYLAKE ((SIMDJSON_IMPLEMENTATION_SKYLAKE) && (SIMDJSON_IS_X86_64) && (__AVX512__) && (__BMI__) && (__PCLMUL__) && (__LZCNT__))
+#endif
+
 // Default Haswell to on if this is x86-64. Even if we're not compiled for it, it could be selected
 // at runtime.
 #ifndef SIMDJSON_IMPLEMENTATION_HASWELL
@@ -49,6 +58,7 @@ SIMDJSON_DISABLE_UNDESIRED_WARNINGS
 // Implementations
 #include "simdjson/arm64.h"
 #include "simdjson/fallback.h"
+#include "simdjson/skylake.h"
 #include "simdjson/haswell.h"
 #include "simdjson/ppc64.h"
 #include "simdjson/westmere.h"
