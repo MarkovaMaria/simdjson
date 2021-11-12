@@ -1,9 +1,9 @@
-#ifndef SIMDJSON_SKYLAKE_STRINGPARSING_H
-#define SIMDJSON_SKYLAKE_STRINGPARSING_H
+#ifndef SIMDJSON_AVX512_STRINGPARSING_H
+#define SIMDJSON_AVX512_STRINGPARSING_H
 
 #include "simdjson/base.h"
-#include "simdjson/skylake/simd.h"
-#include "simdjson/skylake/bitmanipulation.h"
+#include "simdjson/avx512/simd.h"
+#include "simdjson/avx512/bitmanipulation.h"
 
 namespace simdjson {
 namespace SIMDJSON_IMPLEMENTATION {
@@ -45,4 +45,4 @@ simdjson_really_inline backslash_and_quote backslash_and_quote::copy_and_find(co
 
 #include "simdjson/generic/stringparsing.h"
 
-#endif // SIMDJSON_SKYLAKE_STRINGPARSING_H
+#endif // SIMDJSON_AVX512_STRINGPARSING_H

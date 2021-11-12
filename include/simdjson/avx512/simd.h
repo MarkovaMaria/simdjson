@@ -1,5 +1,5 @@
-#ifndef SIMDJSON_SKYLAKE_SIMD_H
-#define SIMDJSON_SKYLAKE_SIMD_H
+#ifndef SIMDJSON_AVX512_SIMD_H
+#define SIMDJSON_AVX512_SIMD_H
 
 #include "simdjson/internal/simdprune_tables.h"
 
@@ -364,4 +364,4 @@ namespace simd {
 } // namespace SIMDJSON_IMPLEMENTATION
 } // namespace simdjson
 
-#endif // SIMDJSON_SKYLAKE_SIMD_H
+#endif // SIMDJSON_AVX512_SIMD_H

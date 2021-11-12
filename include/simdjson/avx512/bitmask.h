@@ -1,5 +1,5 @@
-#ifndef SIMDJSON_SKYLAKE_BITMASK_H
-#define SIMDJSON_SKYLAKE_BITMASK_H
+#ifndef SIMDJSON_AVX512_BITMASK_H
+#define SIMDJSON_AVX512_BITMASK_H
 
 namespace simdjson {
 namespace SIMDJSON_IMPLEMENTATION {
@@ -22,4 +22,4 @@ simdjson_really_inline uint64_t prefix_xor(const uint64_t bitmask) {
 } // namespace SIMDJSON_IMPLEMENTATION
 } // namespace simdjson
 
-#endif // SIMDJSON_SKYLAKE_BITMASK_H
+#endif // SIMDJSON_AVX512_BITMASK_H

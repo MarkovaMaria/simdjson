@@ -14,8 +14,8 @@ namespace internal {
 // Static array of known implementations. We're hoping these get baked into the executable
 // without requiring a static initializer.
 
-#if SIMDJSON_IMPLEMENTATION_SKYLAKE
-const skylake::implementation skylake_singleton{};
+#if SIMDJSON_IMPLEMENTATION_AVX512
+const avx512::implementation avx512_singleton{};
 #endif
 #if SIMDJSON_IMPLEMENTATION_HASWELL
 const haswell::implementation haswell_singleton{};
@@ -62,8 +62,8 @@ private:
 const detect_best_supported_implementation_on_first_use detect_best_supported_implementation_on_first_use_singleton;
 
 const std::initializer_list<const implementation *> available_implementation_pointers {
-#if SIMDJSON_IMPLEMENTATION_SKYLAKE
-  &skylake_singleton,
+#if SIMDJSON_IMPLEMENTATION_AVX512
+  &avx512_singleton,
 #endif
 #if SIMDJSON_IMPLEMENTATION_HASWELL
   &haswell_singleton,

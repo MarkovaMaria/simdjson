@@ -1,5 +1,5 @@
-#ifndef SIMDJSON_SKYLAKE_INTRINSICS_H
-#define SIMDJSON_SKYLAKE_INTRINSICS_H
+#ifndef SIMDJSON_AVX512_INTRINSICS_H
+#define SIMDJSON_AVX512_INTRINSICS_H
 
 #include "simdjson/base.h"
 
@@ -42,12 +42,12 @@
 // has it as a macro.
 #ifndef _blsr_u64
 // we roll our own
-SIMDJSON_TARGET_SKYLAKE
+SIMDJSON_TARGET_AVX512
 static simdjson_really_inline uint64_t _blsr_u64(uint64_t n) {
   return (n - 1) & n;
 }
-SIMDJSON_UNTARGET_SKYLAKE
+SIMDJSON_UNTARGET_AVX512
 #endif //  _blsr_u64
 #endif // SIMDJSON_CLANG_VISUAL_STUDIO
 
-#endif // SIMDJSON_SKYLAKE_INTRINSICS_H
+#endif // SIMDJSON_AVX512_INTRINSICS_H

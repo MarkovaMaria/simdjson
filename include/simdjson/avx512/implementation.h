@@ -1,18 +1,18 @@
-#ifndef SIMDJSON_SKYLAKE_IMPLEMENTATION_H
-#define SIMDJSON_SKYLAKE_IMPLEMENTATION_H
+#ifndef SIMDJSON_AVX512_IMPLEMENTATION_H
+#define SIMDJSON_AVX512_IMPLEMENTATION_H
 
 #include "simdjson/implementation.h"
 
-// The constructor may be executed on any host, so we take care not to use SIMDJSON_TARGET_SKYLAKE
+// The constructor may be executed on any host, so we take care not to use SIMDJSON_TARGET_AVX512
 namespace simdjson {
-namespace skylake {
+namespace avx512 {
 
 using namespace simdjson;
 
 class implementation final : public simdjson::implementation {
 public:
   simdjson_really_inline implementation() : simdjson::implementation(
-      "skylake",
+      "avx512",
       "Intel/AMD AVX512",
       internal::instruction_set::AVX512 | internal::instruction_set::PCLMULQDQ | internal::instruction_set::BMI1 | internal::instruction_set::BMI2
   ) {}
@@ -25,7 +25,7 @@ public:
   simdjson_warn_unused bool validate_utf8(const char *buf, size_t len) const noexcept final;
 };
 
-} // namespace skylake
+} // namespace avx512
 } // namespace simdjson
 
-#endif // SIMDJSON_SKYLAKE_IMPLEMENTATION_H
+#endif // SIMDJSON_AVX512_IMPLEMENTATION_H

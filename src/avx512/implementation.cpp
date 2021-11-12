@@ -1,4 +1,4 @@
-#include "simdjson/skylake/begin.h"
+#include "simdjson/avx512/begin.h"
 
 namespace simdjson {
 namespace SIMDJSON_IMPLEMENTATION {
@@ -20,5 +20,5 @@ simdjson_warn_unused error_code implementation::create_dom_parser_implementation
 } // namespace SIMDJSON_IMPLEMENTATION
 } // namespace simdjson
 
-#include "simdjson/skylake/end.h"
+#include "simdjson/avx512/end.h"
 
