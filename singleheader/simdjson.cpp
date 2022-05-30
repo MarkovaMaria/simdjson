@@ -992,7 +992,7 @@ struct decimal {
   int32_t decimal_point;
   bool negative;
   bool truncated;
-  uint8_t digits[max_digits];
+  uint8_t digits[max_digits] = {0};
 };
 
 template <typename T> struct binary_format {
