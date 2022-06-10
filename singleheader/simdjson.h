@@ -16554,7 +16554,7 @@ namespace simd {
     simdjson_really_inline base8_numeric(const __m256i _value) : base8<T>(_value) {}
 
     // Store to array
-    simdjson_really_inline void store(T dst[32]) const { return _mm256_storeu_si256(reinterpret_cast<__m256i *>(dst), *this); }
+    simdjson_really_inline void store(T dst[32]) const { _mm256_storeu_si256(reinterpret_cast<__m256i *>(dst), *this); }
 
     // Addition/subtraction are the same for signed and unsigned
     simdjson_really_inline simd8<T> operator+(const simd8<T> other) const { return _mm256_add_epi8(*this, other); }
@@ -21291,7 +21291,7 @@ namespace simd {
     simdjson_really_inline base8_numeric(const __m128i _value) : base8<T>(_value) {}
 
     // Store to array
-    simdjson_really_inline void store(T dst[16]) const { return _mm_storeu_si128(reinterpret_cast<__m128i *>(dst), *this); }
+    simdjson_really_inline void store(T dst[16]) const { _mm_storeu_si128(reinterpret_cast<__m128i *>(dst), *this); }
 
     // Override to distinguish from bool version
     simdjson_really_inline simd8<T> operator~() const { return *this ^ 0xFFu; }
